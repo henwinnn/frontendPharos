@@ -106,7 +106,7 @@ export default function TokenSwapPage() {
 
   return (
     <ThemeProvider attribute="class" defaultTheme={theme}>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200" style={{ backgroundColor: 'red'}}>
         <div className="absolute top-4 right-4 flex items-center space-x-2">
           {!connected ? (
             <Button
