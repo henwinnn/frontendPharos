@@ -1,0 +1,19 @@
+# Abaikan folder build Next.js
+.next/
+
+# Abaikan dependensi lokal
+node_modules/
+
+# Abaikan file lock npm
+package-lock.json
+
+# Abaikan log & cache
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Abaikan file sistem Mac
+.DS_Store
+
+# Abaikan file sistem Windows
+Thumbs.db
