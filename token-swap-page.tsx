@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input"
 import { ArrowUpDown, Calculator, Info, LogOut, Moon, Sun, Wallet } from "lucide-react"
 import { ThemeProvider } from "@/components/theme-provider"
+import { connectWalletContract, getTokenBalanceIDRX } from "./connect/connect"
 
 export default function TokenSwapPage() {
   const [connected, setConnected] = useState(false)
@@ -104,9 +105,23 @@ export default function TokenSwapPage() {
     setToToken(temp)
   }
 
+
+
+  // connect smart contract
+  async function checkMyTokenBalance() {
+    const signer = await connectWalletContract();
+    if (!signer) return;
+  
+    const walletAddress = await signer.getAddress();
+    getTokenBalanceIDRX(walletAddress);
+  }
+
+  console.log('checkMyTokenBalance', checkMyTokenBalance)
+
+
   return (
     <ThemeProvider attribute="class" defaultTheme={theme}>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200" style={{ backgroundColor: 'red'}}>
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200" >
         <div className="absolute top-4 right-4 flex items-center space-x-2">
           {!connected ? (
             <Button
